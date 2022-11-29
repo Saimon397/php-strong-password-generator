@@ -7,8 +7,8 @@ $elements = [
     'symbols' => '\|!"$%&/()=?^*.;,-_#@][><'
 ];
 $password = '';
-if (isset($_GET['numcar']) && !empty($_GET['numcar'])) {
-    $length = $_GET['numcar'];
+if (isset($_POST['numcar']) && !empty($_POST['numcar'])) {
+    $length = $_POST['numcar'];
     $summ = $elements['alphabet'] . $elements['numbers'] . $elements['symbols'];
     $summ = str_shuffle($summ);
     while (strlen($password) < $length) {
@@ -18,7 +18,7 @@ if (isset($_GET['numcar']) && !empty($_GET['numcar'])) {
     $_SESSION['password'] = $password;
     header('Location: ./passwordpage.php');
 };
-var_dump($password)
+//var_dump($password)
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ var_dump($password)
 </head>
 
 <body>
-    <form action="index.php" method="GET">
+    <form action="index.php" method="POST">
         <div class="mt-5 container d-flex justify-content-center">
             <label for="" class="form-label text-uppercase fs-1 fw-bold me-3">Password Generator:</label>
             <input type="number" class="text-center border rounded" name="numcar" placeholder="Choose the length...">

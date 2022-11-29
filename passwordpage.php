@@ -24,7 +24,6 @@ $print = $_SESSION['password']
         <h3><?php echo strlen($print) ?></h3>
     </div>
 
-
 </body>
 
 </html>
